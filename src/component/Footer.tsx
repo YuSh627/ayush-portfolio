@@ -3,23 +3,25 @@ import {
   Box,
   Container,
   Typography,
-  //   Link,
   IconButton,
-  Divider,
+  // Divider,
+  Stack,
+  Link,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   return (
     <Box
       component="footer"
       sx={{
-        py: 4,
+        py: 6,
         backgroundColor: "#1976d2",
         color: "white",
       }}>
@@ -27,45 +29,73 @@ const Footer: React.FC = () => {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
-            alignItems: "center",
+            // alignContent: "center",
+            justifyContent: "space-around",
           }}>
-          <Typography
-            variant="h6"
-            sx={{ fontWeight: "bold", mb: { xs: 2, md: 0 } }}>
-            Ayush Shrestha
-          </Typography>
-
+          {/* Contact Information */}
           <Box>
-            <IconButton color="inherit" aria-label="GitHub">
-              <GitHubIcon />
-            </IconButton>
-            <IconButton color="inherit" aria-label="LinkedIn">
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton color="inherit" aria-label="Twitter">
-              <TwitterIcon />
-            </IconButton>
-            <IconButton color="inherit" aria-label="Instagram">
-              <InstagramIcon />
-            </IconButton>
+            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+              Contact Info
+            </Typography>
+            <Stack spacing={2}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <EmailIcon fontSize="medium" />
+                <Link
+                  sx={{ fontSize: "1rem", textDecoration: "none" }}
+                  href="mailto:shresthaa627@gmail.com"
+                  color="inherit">
+                  shresthaa627@gmail.com
+                </Link>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <PhoneIcon fontSize="medium" />
+                <Link
+                  sx={{ fontSize: ".95rem", textDecoration: "none" }}
+                  href="tel:+9779860862266"
+                  color="inherit">
+                  +977 9860862266
+                </Link>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <LocationOnIcon fontSize="medium" />
+                <Typography variant="body2" sx={{ fontSize: "1rem" }}>
+                  Chhauni, Kathmandu, Nepal
+                </Typography>
+              </Box>
+            </Stack>
+          </Box>
+
+          {/* Social Links */}
+          <Box>
+            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+              Connect With Me
+            </Typography>
+            <Stack direction="row" spacing={1.5}>
+              <IconButton
+                href="https://github.com/yush627"
+                target="_blank"
+                color="inherit"
+                aria-label="GitHub">
+                <GitHubIcon fontSize="medium" />
+              </IconButton>
+              <IconButton
+                href="https://www.linkedin.com/in/ayushshrestha627890/"
+                target="_blank"
+                color="inherit"
+                aria-label="LinkedIn">
+                <LinkedInIcon fontSize="medium" />
+              </IconButton>
+            </Stack>
           </Box>
         </Box>
 
-        <Divider sx={{ my: 3, backgroundColor: "rgba(255, 255, 255, 0.2)" }} />
+        {/* <Divider sx={{ my: 3, backgroundColor: "rgba(255, 255, 255, 0.2)" }} /> */}
 
-        <Box sx={{ textAlign: "center" }}>
-          <Typography variant="body2" color="inherit">
+        {/* <Box sx={{ textAlign: "center" }}>
+          <Typography variant="body2" sx={{ fontSize: ".95rem" }}>
             &copy; {currentYear} Ayush Shrestha. All rights reserved.
           </Typography>
-          <Typography
-            variant="body2"
-            color="inherit"
-            sx={{ mt: 1, opacity: 0.8 }}>
-            Front-End Developer & UI/UX Designer
-          </Typography>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

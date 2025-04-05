@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "Real-Time Chat Application",
     description:
       "Designed and prototyped a chat application in Figma and developed it using React, TypeScript, Material-UI, Redux, and WebSocket for seamless real-time messaging. Implemented responsive design and state management to improve usability.",
-    image: "/images/chatroom.png",
+    image: "/ayush-portfolio/image/chatroom.png",
     technologies: [
       "React",
       "TypeScript",
@@ -49,14 +49,22 @@ const projects: Project[] = [
     title: "Profile Interface Design",
     description:
       "Designed and prototyped a user-friendly profile interface in Figma and built the web-application using HTML, CSS, and JavaScript.",
-    image: "/images/profile.png",
+    image: "/ayush-portfolio/image/profile.png",
     technologies: ["HTML", "CSS", "JavaScript", "Figma"],
     figmaLink:
       "https://www.figma.com/design/VGyqrrR3OAjr8x56nYLgh4/ProfileDesign?node-id=0-1&t=iPpCXlZ5VxuWhXeL-1",
     liveLink: "https://www.ashikrajbhandari.com.np/",
   },
+  {
+    id: 3,
+    title: "Memory Card Game",
+    description:
+      "Developed an interactive memory card game using HTML, CSS, and JavaScript. Players test their memory by matching pairs of cards, featuring smooth animations, score tracking, and responsive design for both desktop and mobile play.",
+    image: "/ayush-portfolio/image/memorycard.png",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    liveLink: "https://yush627.github.io/memory-card-game/",
+  },
 ];
-
 const Projects: React.FC = () => {
   return (
     <Box id="projects" sx={{ py: 10, backgroundColor: "#fff" }}>

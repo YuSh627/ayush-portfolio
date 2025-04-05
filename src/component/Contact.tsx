@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com"; // Import emailjs library
 import {
   Box,
   Container,
@@ -9,11 +10,11 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import EmailIcon from "@mui/icons-material/Email";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import PhoneIcon from "@mui/icons-material/Phone";
 
 const Contact: React.FC = () => {
+  const SERVICE_ID = "service_brqkfhj";
+  const TEMPLATE_ID = "template_x9p51am";
+  const PUBLIC_KEY = "rWzMaO2nahUnkm4Wa";
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -29,6 +30,7 @@ const Contact: React.FC = () => {
     message: "",
     severity: "success" as "success" | "error",
   });
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,41 +49,45 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    // Basic validation
-    const newErrors = {
-      name: formValues.name.trim() === "",
-      email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email),
-      message: formValues.message.trim() === "",
-    };
+    try {
+      // Basic validation
+      const newErrors = {
+        name: formValues.name.trim() === "",
+        email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.email),
+        message: formValues.message.trim() === "",
+      };
 
-    setErrors(newErrors);
+      setErrors(newErrors);
 
-    if (!Object.values(newErrors).some(Boolean)) {
-      // Form is valid, you would normally submit the form here
-      console.log("Form submitted:", formValues);
+      if (!Object.values(newErrors).some(Boolean)) {
+        const result = await emailjs.sendForm(
+          SERVICE_ID,
+          TEMPLATE_ID,
+          e.target as HTMLFormElement,
+          PUBLIC_KEY
+        );
 
-      // Show success message
+        console.log("Email sent:", result.text);
+        setSnackbar({
+          open: true,
+          message: "Email sent successfully!",
+          severity: "success",
+        });
+        setFormValues({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Email error:", error);
       setSnackbar({
         open: true,
-        message: "Thank you for your message! I will get back to you soon.",
-        severity: "success",
-      });
-
-      // Reset form
-      setFormValues({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } else {
-      setSnackbar({
-        open: true,
-        message: "Please fill in all required fields correctly.",
+        message: "Failed to send email. Please try again later.",
         severity: "error",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -103,122 +109,71 @@ const Contact: React.FC = () => {
           Get In Touch
         </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 6,
-            mt: 2,
-            justifyContent: "center",
-          }}>
-          <Box
-            sx={{
-              flex: "1 1 300px",
-              minWidth: "280px",
-              maxWidth: "400px",
-            }}>
-            <Paper elevation={3} sx={{ p: 4, height: "100%", borderRadius: 2 }}>
-              <Typography variant="h5" gutterBottom>
-                Contact Information
-              </Typography>
-              <Box sx={{ mt: 3 }}>
-                <Box sx={{ display: "flex", mb: 3, alignItems: "center" }}>
-                  <PhoneIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body2">+977-9860862266</Typography>
-                </Box>
-                <Box sx={{ display: "flex", mb: 3, alignItems: "center" }}>
-                  <EmailIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body2">
-                    shresthaa627@gmail.com
-                  </Typography>
-                </Box>
-                <Box sx={{ display: "flex", mb: 3, alignItems: "center" }}>
-                  <LocationOnIcon color="primary" sx={{ mr: 2 }} />
-                  <Typography variant="body2">
-                    Chhauni, Kathmandu, Nepal
-                  </Typography>
-                </Box>
+        <Box sx={{ maxWidth: 600, mx: "auto" }}>
+          <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+            <Typography variant="h5" gutterBottom>
+              Send Me a Message
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <TextField
+                  fullWidth
+                  label="Your Name"
+                  name="name"
+                  value={formValues.name}
+                  onChange={handleChange}
+                  error={errors.name}
+                  helperText={errors.name ? "Name is required" : ""}
+                  required
+                  sx={{
+                    "& .MuiInputBase-input": { fontSize: "0.98rem" },
+                    "& .MuiInputLabel-root": { fontSize: "0.98rem" },
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                  helperText={
+                    errors.email ? "Please enter a valid email address" : ""
+                  }
+                  required
+                  sx={{
+                    "& .MuiInputBase-input": { fontSize: "0.98rem" },
+                    "& .MuiInputLabel-root": { fontSize: "0.98rem" },
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  label="Your Message"
+                  name="message"
+                  multiline
+                  rows={4}
+                  value={formValues.message}
+                  onChange={handleChange}
+                  error={errors.message}
+                  helperText={errors.message ? "Message is required" : ""}
+                  required
+                  sx={{
+                    "& .MuiInputBase-input": { fontSize: "0.98rem" },
+                    "& .MuiInputLabel-root": { fontSize: "0.98rem" },
+                  }}
+                />
               </Box>
-
-              <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
-                Social Profiles
-              </Typography>
-              <Box sx={{ display: "flex", gap: 2 }}>
-                {/* You can add social icons here */}
-              </Box>
-            </Paper>
-          </Box>
-
-          <Box
-            sx={{
-              flex: "1 1 400px",
-              minWidth: "280px",
-              maxWidth: "600px",
-            }}>
-            <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-              <Typography variant="h5" gutterBottom>
-                Send Me a Message
-              </Typography>
-              <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                  <TextField
-                    fullWidth
-                    label="Your Name"
-                    name="name"
-                    value={formValues.name}
-                    onChange={handleChange}
-                    error={errors.name}
-                    helperText={errors.name ? "Name is required" : ""}
-                    required
-                    sx={{
-                      "& .MuiInputBase-input": { fontSize: "0.98rem" },
-                      "& .MuiInputLabel-root": { fontSize: "0.98rem" },
-                    }}
-                  />
-                  <TextField
-                    fullWidth
-                    label="Email Address"
-                    name="email"
-                    type="email"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    error={errors.email}
-                    helperText={
-                      errors.email ? "Please enter a valid email address" : ""
-                    }
-                    required
-                    sx={{
-                      "& .MuiInputBase-input": { fontSize: "0.98rem" },
-                      "& .MuiInputLabel-root": { fontSize: "0.98rem" },
-                    }}
-                  />
-                  <TextField
-                    fullWidth
-                    label="Your Message"
-                    name="message"
-                    multiline
-                    rows={4}
-                    value={formValues.message}
-                    onChange={handleChange}
-                    error={errors.message}
-                    helperText={errors.message ? "Message is required" : ""}
-                    required
-                    sx={{
-                      "& .MuiInputBase-input": { fontSize: "0.98rem" },
-                      "& .MuiInputLabel-root": { fontSize: "0.98rem" },
-                    }}
-                  />
-                </Box>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  size="large"
-                  sx={{ mt: 3, px: 4 }}>
-                  Send Message
-                </Button>
-              </Box>
-            </Paper>
-          </Box>
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                disabled={isLoading}
+                sx={{ mt: 3, px: 4 }}>
+                {isLoading ? "Sending..." : "Send Message"}
+              </Button>
+            </Box>
+          </Paper>
         </Box>
 
         <Snackbar

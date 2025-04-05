@@ -342,10 +342,10 @@ const About: React.FC = () => {
                       component="h3"
                       gutterBottom
                       fontWeight="bold">
-                      +2 H.S.E.B.
+                      S.E.E.
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                      Everest Innovative College
+                      Greenfield National Higher Secondary School
                     </Typography>
                     <Typography
                       variant="body2"
