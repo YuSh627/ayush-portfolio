@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
     <Box
       sx={{
         position: "relative",
-        height: { xs: "calc(100vh - 56px)", sm: "calc(100vh - 64px)" }, // Adjust for different navbar heights
+        height: { xs: "calc(100vh - 56px)", sm: "calc(100vh - 64px)" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
               fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4rem" },
               fontWeight: 700,
             }}>
-            Ayush Shrestha
+            Hi, I'm Ayush Shrestha
           </Typography>
           <Typography
             variant="h4"
@@ -62,18 +62,29 @@ const Hero: React.FC = () => {
             size={isMobile ? "medium" : "large"}
             sx={{
               borderRadius: "30px",
-              px: { xs: 3, md: 4 },
-              py: { xs: 1, md: 1.5 },
-              borderWidth: "2px",
+              px: { xs: 4, md: 5 },
+              py: { xs: 1.5, md: 2 },
+              borderWidth: 2,
+              fontSize: { xs: "1rem", sm: "1.1rem" },
+              textTransform: "none",
+              letterSpacing: 1,
+              transition: "all 0.3s ease",
+              backdropFilter: "blur(5px)",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
               "&:hover": {
-                borderWidth: "2px",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                borderWidth: 2,
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                transform: "translateY(-3px)",
+                boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+              },
+              "&:active": {
+                transform: "translateY(0)",
               },
             }}
             onClick={() => {
-              const aboutSection = document.getElementById("about");
-              if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: "smooth" });
+              const projectSection = document.getElementById("projects");
+              if (projectSection) {
+                projectSection.scrollIntoView({ behavior: "smooth" });
               }
             }}>
             View My Work

@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               Connect With Me
             </Typography>
-            <Stack direction="row" spacing={1.5}>
+            <Stack direction="row" spacing={0}>
               <IconButton
                 href="https://github.com/yush627"
                 target="_blank"

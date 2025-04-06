@@ -110,62 +110,94 @@ const About: React.FC = () => {
   return (
     <Box id="about" sx={{ py: { xs: 6, md: 10 }, backgroundColor: "#fff" }}>
       <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          component="h2"
-          textAlign="center"
-          sx={{ mb: 5 }}>
-          About Me
-        </Typography>
-
         <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap",
-            gap: 4,
-            alignItems: "flex-start",
-            justifyContent: "center",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 4, md: 8 },
+            alignItems: "center",
           }}>
+          {/* Content First (will appear above image on mobile) */}
           <Box
             sx={{
-              flex: "0 1 auto",
-              minWidth: "280px",
-              textAlign: "center",
-              mb: { xs: 2, md: 0 },
+              flex: { xs: "1 1 100%", md: "0 1 100%" },
+              display: "flex",
+              flexDirection: "column",
+
+              order: { xs: 1, md: 2 },
             }}>
-            <Avatar
-              src="/avatar-placeholder.jpg"
-              alt="Ayush Shrestha"
+            {/* About Me Title */}
+            <Typography
+              variant="h2"
+              component="h2"
               sx={{
-                width: { xs: 200, sm: 250 },
-                height: { xs: 200, sm: 250 },
-                mx: "auto",
-                boxShadow: 3,
-                border: "4px solid #f0f0f0",
-              }}
-            />
-          </Box>
-          <Box
-            sx={{
-              flex: "1 1 600px",
-              maxWidth: "800px",
-            }}>
-            <Paper elevation={0} sx={{ p: { xs: 2, md: 4 }, borderRadius: 2 }}>
-              <Typography variant="body1" paragraph>
+                textAlign: { xs: "center", md: "left" },
+                mb: 5,
+              }}>
+              About Me
+            </Typography>
+
+            {/* Photo between title and text */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "center",
+                mb: 3,
+              }}>
+              <Avatar
+                src="/ayush-portfolio/image/ayush.jpg"
+                sx={{
+                  width: { xs: 200, sm: 250 },
+                  height: { xs: 200, sm: 250 },
+                  boxShadow: 3,
+                  border: "4px solid #f0f0f0",
+                }}
+              />
+            </Box>
+
+            {/* About Text */}
+            <Paper elevation={0} sx={{ p: 0 }}>
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  textAlign: "justify",
+                }}>
                 I specialize in creating responsive web applications with modern
                 JavaScript frameworks. My expertise includes front-end
                 development with React, user interface design with Figma, and
                 implementing responsive layouts with CSS and Material-UI.
               </Typography>
-              <Typography variant="body1" paragraph>
-                With a Bachelor in Computer Science and Information Technology
-                from National College of Computer Studies, I bring both
-                technical knowledge and practical experience to my development
-                work. I'm passionate about creating intuitive user experiences
-                and continuously improving my skills to stay current with
-                industry trends.
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{
+                  textAlign: "justify",
+                }}>
+                I'm passionate about creating intuitive user experiences and
+                continuously improving my skills to stay current with industry
+                trends.
               </Typography>
             </Paper>
+          </Box>
+
+          {/* Desktop Image (hidden on mobile) */}
+          <Box
+            sx={{
+              flex: { xs: "1 1 100%", md: "0 1 50%" },
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+              order: { md: 1 },
+            }}>
+            <Avatar
+              src="/ayush-portfolio/image/ayush.jpg"
+              sx={{
+                width: 300,
+                height: 300,
+                boxShadow: 3,
+                border: "4px solid #f0f0f0",
+              }}
+            />
           </Box>
         </Box>
 
@@ -207,13 +239,11 @@ const About: React.FC = () => {
                       variant="h6"
                       component="h3"
                       gutterBottom
-                      fontWeight="bold">
+                      fontWeight="bold"
+                      mb="0">
                       Front-End Developer Intern
                     </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      gutterBottom
-                      fontWeight="medium">
+                    <Typography variant="subtitle2" mt="0" fontWeight="medium">
                       Sciever Inc. Pvt. Ltd., Kathmandu, Nepal
                     </Typography>
                     <Typography
@@ -222,24 +252,13 @@ const About: React.FC = () => {
                       sx={{ display: { xs: "block", md: "none" }, mb: 1 }}>
                       March 2024 - December 2024
                     </Typography>
-                    <Box component="ul" sx={{ pl: 2, mt: 1 }}>
-                      <Typography component="li" variant="body2" gutterBottom>
-                        Assisted in designing and refining UI/UX components
-                        using Figma
-                      </Typography>
-                      <Typography component="li" variant="body2" gutterBottom>
-                        Worked with HTML, CSS, and JavaScript to build
-                        interactive interfaces
-                      </Typography>
-                      <Typography component="li" variant="body2" gutterBottom>
-                        Developed front-end with React, TypeScript, Material-UI,
-                        and Redux
-                      </Typography>
-                      <Typography component="li" variant="body2" gutterBottom>
-                        Implemented WebSocket for real-time interactions
-                      </Typography>
-                      <Typography component="li" variant="body2">
-                        Worked in a cross-functional team using Agile practices
+                    <Box sx={{ mt: 1 }}>
+                      <Typography variant="body2" paragraph>
+                        Front-end developer intern at Sciever Inc., where I
+                        designed UI components in Figma and developed
+                        interactive web applications using React, TypeScript,
+                        and Material-UI. Implemented real-time features with
+                        WebSocket and collaborated in an Agile team environment.
                       </Typography>
                     </Box>
                   </Paper>
@@ -254,7 +273,7 @@ const About: React.FC = () => {
                 <TimelineOppositeContent
                   color="text.secondary"
                   sx={{ display: { xs: "none", md: "block" } }}>
-                  Graduated 2024
+                  2024
                 </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot color="primary">
@@ -280,7 +299,7 @@ const About: React.FC = () => {
                       variant="body2"
                       color="text.secondary"
                       sx={{ display: { xs: "block", md: "none" } }}>
-                      Graduated 2024
+                      2024
                     </Typography>
                   </Paper>
                 </TimelineContent>

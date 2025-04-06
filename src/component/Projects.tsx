@@ -11,7 +11,6 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 
@@ -31,7 +30,7 @@ const projects: Project[] = [
     id: 1,
     title: "Real-Time Chat Application",
     description:
-      "Designed and prototyped a chat application in Figma and developed it using React, TypeScript, Material-UI, Redux, and WebSocket for seamless real-time messaging. Implemented responsive design and state management to improve usability.",
+      "Designed and prototyped a chat application in Figma and developed it using React, TypeScript, Material-UI, Redux, and WebSocket for seamless real-time messaging.",
     image: "/ayush-portfolio/image/chatroom.png",
     technologies: [
       "React",
@@ -59,7 +58,7 @@ const projects: Project[] = [
     id: 3,
     title: "Memory Card Game",
     description:
-      "Developed an interactive memory card game using HTML, CSS, and JavaScript. Players test their memory by matching pairs of cards, featuring smooth animations, score tracking, and responsive design for both desktop and mobile play.",
+      "Developed an interactive memory card game using HTML, CSS, and JavaScript. Players test their memory by matching pairs of cards.",
     image: "/ayush-portfolio/image/memorycard.png",
     technologies: ["HTML", "CSS", "JavaScript"],
     liveLink: "https://yush627.github.io/memory-card-game/",
@@ -69,17 +68,19 @@ const Projects: React.FC = () => {
   return (
     <Box id="projects" sx={{ py: 10, backgroundColor: "#fff" }}>
       <Container maxWidth="lg">
-        <Typography variant="h2" component="h2" textAlign="center">
-          Projects
-        </Typography>
         <Typography
+          variant="h2"
+          component="h2"
+          sx={{ mb: 5 }}
+          textAlign="center">
+          Works Done
+        </Typography>
+        {/* <Typography
           variant="subtitle1"
           textAlign="center"
-          color="text.secondary"
-          paragraph
-          sx={{ mb: 5 }}>
-          A selection of my recent work and academic projects
-        </Typography>
+          color="text.secondary">
+          paragraph A selection of my recent work and academic projects
+        </Typography> */}
 
         <Box
           sx={{
@@ -121,12 +122,7 @@ const Projects: React.FC = () => {
                 <Typography variant="body2" color="text.secondary" paragraph>
                   {project.description}
                 </Typography>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  flexWrap="wrap"
-                  useFlexGap
-                  sx={{ mt: 2 }}>
+                <Stack direction="row" spacing={0.5} flexWrap="wrap" useFlexGap>
                   {project.technologies.slice(0, 5).map((tech, index) => (
                     <Chip
                       key={index}
@@ -148,7 +144,7 @@ const Projects: React.FC = () => {
                   )} */}
                 </Stack>
               </CardContent>
-              <CardActions>
+              <CardActions sx={{ justifyContent: "space-between", px: 2 }}>
                 {project.figmaLink && (
                   <Button
                     size="small"
@@ -165,15 +161,6 @@ const Projects: React.FC = () => {
                     href={project.liveLink}
                     target="_blank">
                     Live
-                  </Button>
-                )}
-                {project.githubLink && (
-                  <Button
-                    size="small"
-                    startIcon={<GitHubIcon />}
-                    href={project.githubLink}
-                    target="_blank">
-                    Code
                   </Button>
                 )}
               </CardActions>

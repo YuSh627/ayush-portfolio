@@ -44,7 +44,7 @@ const baseTheme = createTheme({
       fontWeight: 600,
     },
     body1: {
-      fontSize: "1.25rem",
+      fontSize: "1.1rem",
     },
     body2: {
       fontSize: ".98rem",
