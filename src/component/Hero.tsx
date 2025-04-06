@@ -57,16 +57,16 @@ const Hero: React.FC = () => {
             Creating intuitive and user-friendly interfaces
           </Typography>
           <Box
-            sx={{ display: "flex", gap: 2.5, mt: 5, justifyContent: "center" }}>
+            sx={{ display: "flex", gap: 2, mt: 5, justifyContent: "center" }}>
             {/* First Button - View My Work */}
             <Button
               variant="contained"
               size={isMobile ? "medium" : "large"}
               sx={{
                 borderRadius: "30px",
-                px: { xs: 4, md: 5 },
+                px: { xs: 3, md: 5 },
                 py: { xs: 1.5, md: 2 },
-                fontSize: { xs: "1rem", sm: "1.1rem" },
+                fontSize: { xs: ".9rem", sm: "1.1rem" },
                 textTransform: "none",
                 letterSpacing: 1,
                 transition: "all 0.3s ease",
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
                 px: { xs: 3, md: 5 },
                 py: { xs: 1.5, md: 2 },
                 borderWidth: 2, // Added to match first button
-                fontSize: { xs: "1rem", sm: "1.1rem" },
+                fontSize: { xs: ".9rem", sm: "1.1rem" },
                 textTransform: "none",
                 letterSpacing: 1,
                 transition: "all 0.3s ease",
