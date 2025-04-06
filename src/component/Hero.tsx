@@ -8,6 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import GetAppIcon from "@mui/icons-material/GetApp"; // Add this import
 
 const Hero: React.FC = () => {
   const theme = useTheme();
@@ -56,39 +57,76 @@ const Hero: React.FC = () => {
             }}>
             Creating intuitive and user-friendly interfaces
           </Typography>
-          <Button
-            variant="outlined"
-            color="inherit"
-            size={isMobile ? "medium" : "large"}
-            sx={{
-              borderRadius: "30px",
-              px: { xs: 4, md: 5 },
-              py: { xs: 1.5, md: 2 },
-              borderWidth: 2,
-              fontSize: { xs: "1rem", sm: "1.1rem" },
-              textTransform: "none",
-              letterSpacing: 1,
-              transition: "all 0.3s ease",
-              backdropFilter: "blur(5px)",
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              "&:hover": {
-                borderWidth: 2,
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                transform: "translateY(-3px)",
-                boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-              },
-              "&:active": {
-                transform: "translateY(0)",
-              },
-            }}
-            onClick={() => {
-              const projectSection = document.getElementById("projects");
-              if (projectSection) {
-                projectSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}>
-            View My Work
-          </Button>
+          <Box
+            sx={{ display: "flex", gap: 2.5, mt: 5, justifyContent: "center" }}>
+            {/* First Button - View My Work */}
+            <Button
+              variant="contained"
+              size={isMobile ? "medium" : "large"}
+              endIcon={<ArrowDownwardIcon />}
+              sx={{
+                borderRadius: "30px",
+                px: { xs: 4, md: 5 },
+                py: { xs: 1.5, md: 2 },
+                fontSize: { xs: "1rem", sm: "1.1rem" },
+                textTransform: "none",
+                letterSpacing: 1,
+                transition: "all 0.3s ease",
+                backdropFilter: "blur(5px)",
+                backgroundColor: "rgba(255, 255, 255, 0.95)", // White background
+                color: "#1976d2", // Blue text color
+                "&:hover": {
+                  borderWidth: 2,
+                  // backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+                },
+                "&:active": {
+                  transform: "translateY(0)",
+                },
+              }}
+              onClick={() => {
+                const projectSection = document.getElementById("projects");
+                if (projectSection) {
+                  projectSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}>
+              View My Work
+            </Button>
+
+            {/* Second Button - Download CV */}
+            <Button
+              variant="outlined"
+              color="inherit"
+              size={isMobile ? "medium" : "large"}
+              endIcon={<GetAppIcon />}
+              href="/ayush-portfolio/CV.pdf"
+              target="_blank"
+              download
+              sx={{
+                borderRadius: "30px",
+                px: { xs: 4, md: 5 },
+                py: { xs: 1.5, md: 2 },
+                borderWidth: 2, // Added to match first button
+                fontSize: { xs: "1rem", sm: "1.1rem" },
+                textTransform: "none",
+                letterSpacing: 1,
+                transition: "all 0.3s ease",
+                // backdropFilter: "blur(5px)", // Added to match first button
+                // backgroundColor: "rgba(255, 255, 255, 0.1)",
+                "&:hover": {
+                  borderWidth: 2,
+                  // backgroundColor: "rgba(255, 255, 255, 0.2)",
+                  transform: "translateY(-3px)",
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+                },
+                "&:active": {
+                  transform: "translateY(0)",
+                },
+              }}>
+              Download CV
+            </Button>
+          </Box>
         </Box>
       </Container>
       <Box
