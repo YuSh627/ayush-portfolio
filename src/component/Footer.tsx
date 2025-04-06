@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
           sx={{
             display: "flex",
             // alignContent: "center",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
           }}>
           {/* Contact Information */}
           <Box>
