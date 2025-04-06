@@ -8,7 +8,6 @@ import {
   useTheme,
 } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import GetAppIcon from "@mui/icons-material/GetApp"; // Add this import
 
 const Hero: React.FC = () => {
   const theme = useTheme();
@@ -63,7 +62,6 @@ const Hero: React.FC = () => {
             <Button
               variant="contained"
               size={isMobile ? "medium" : "large"}
-              endIcon={<ArrowDownwardIcon />}
               sx={{
                 borderRadius: "30px",
                 px: { xs: 4, md: 5 },
@@ -99,13 +97,12 @@ const Hero: React.FC = () => {
               variant="outlined"
               color="inherit"
               size={isMobile ? "medium" : "large"}
-              endIcon={<GetAppIcon />}
               href="/ayush-portfolio/CV.pdf"
               target="_blank"
               download
               sx={{
                 borderRadius: "30px",
-                px: { xs: 4, md: 5 },
+                px: { xs: 3, md: 5 },
                 py: { xs: 1.5, md: 2 },
                 borderWidth: 2, // Added to match first button
                 fontSize: { xs: "1rem", sm: "1.1rem" },
