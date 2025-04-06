@@ -12,9 +12,6 @@ import {
 } from "@mui/material";
 
 const Contact: React.FC = () => {
-  const SERVICE_ID = "service_brqkfhj";
-  const TEMPLATE_ID = "template_x9p51am";
-  const PUBLIC_KEY = "rWzMaO2nahUnkm4Wa";
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -65,10 +62,10 @@ const Contact: React.FC = () => {
 
       if (!Object.values(newErrors).some(Boolean)) {
         const result = await emailjs.sendForm(
-          SERVICE_ID,
-          TEMPLATE_ID,
+          import.meta.env.VITE_SERVICE_ID,
+          import.meta.env.VITE_TEMPLATE_ID,
           e.target as HTMLFormElement,
-          PUBLIC_KEY
+          import.meta.env.VITE_PUBLIC_KEY
         );
 
         console.log("Email sent:", result.text);
