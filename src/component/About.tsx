@@ -39,7 +39,8 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`about-tabpanel-${index}`}
       aria-labelledby={`about-tab-${index}`}
-      {...other}>
+      {...other}
+    >
       {value === index && <Box sx={{ py: 3 }}>{children}</Box>}
     </div>
   );
@@ -116,7 +117,8 @@ const About: React.FC = () => {
             flexDirection: { xs: "column", md: "row" },
             gap: { xs: 4, md: 8 },
             alignItems: "center",
-          }}>
+          }}
+        >
           {/* Content First (will appear above image on mobile) */}
           <Box
             sx={{
@@ -125,7 +127,8 @@ const About: React.FC = () => {
               flexDirection: "column",
 
               order: { xs: 1, md: 2 },
-            }}>
+            }}
+          >
             {/* About Me Title */}
             <Typography
               variant="h2"
@@ -133,7 +136,8 @@ const About: React.FC = () => {
               sx={{
                 textAlign: { xs: "center", md: "left" },
                 mb: 5,
-              }}>
+              }}
+            >
               About Me
             </Typography>
 
@@ -143,7 +147,8 @@ const About: React.FC = () => {
                 display: { xs: "flex", md: "none" },
                 justifyContent: "center",
                 mb: 3,
-              }}>
+              }}
+            >
               <Avatar
                 src="/ayush-portfolio/image/ayush.jpg"
                 sx={{
@@ -162,7 +167,8 @@ const About: React.FC = () => {
                 paragraph
                 sx={{
                   textAlign: "justify",
-                }}>
+                }}
+              >
                 I specialize in creating responsive web applications with modern
                 JavaScript frameworks. My expertise includes front-end
                 development with React, user interface design with Figma, and
@@ -173,7 +179,8 @@ const About: React.FC = () => {
                 paragraph
                 sx={{
                   textAlign: "justify",
-                }}>
+                }}
+              >
                 I'm passionate about creating intuitive user experiences and
                 continuously improving my skills to stay current with industry
                 trends.
@@ -188,7 +195,8 @@ const About: React.FC = () => {
               display: { xs: "none", md: "flex" },
               justifyContent: "center",
               order: { md: 1 },
-            }}>
+            }}
+          >
             <Avatar
               src="/ayush-portfolio/image/ayush.jpg"
               sx={{
@@ -210,7 +218,8 @@ const About: React.FC = () => {
               variant="fullWidth"
               scrollButtons={isMobile ? "auto" : false}
               allowScrollButtonsMobile
-              centered>
+              centered
+            >
               <Tab icon={<WorkIcon />} label="Experience" {...a11yProps(0)} />
               <Tab icon={<SchoolIcon />} label="Education" {...a11yProps(1)} />
               <Tab icon={<CodeIcon />} label="Skills" {...a11yProps(2)} />
@@ -222,7 +231,8 @@ const About: React.FC = () => {
               <TimelineItem>
                 <TimelineOppositeContent
                   color="text.secondary"
-                  sx={{ display: { xs: "none", md: "block" } }}>
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
                   March 2024 - December 2024
                 </TimelineOppositeContent>
                 <TimelineSeparator>
@@ -234,13 +244,15 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <Paper
                     elevation={3}
-                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}
+                  >
                     <Typography
                       variant="h6"
                       component="h3"
                       gutterBottom
                       fontWeight="bold"
-                      mb="0">
+                      mb="0"
+                    >
                       Front-End Developer Intern
                     </Typography>
                     <Typography variant="subtitle2" mt="0" fontWeight="medium">
@@ -249,7 +261,8 @@ const About: React.FC = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ display: { xs: "block", md: "none" }, mb: 1 }}>
+                      sx={{ display: { xs: "block", md: "none" }, mb: 1 }}
+                    >
                       March 2024 - December 2024
                     </Typography>
                     <Box sx={{ mt: 1 }}>
@@ -272,7 +285,8 @@ const About: React.FC = () => {
               <TimelineItem>
                 <TimelineOppositeContent
                   color="text.secondary"
-                  sx={{ display: { xs: "none", md: "block" } }}>
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
                   2024
                 </TimelineOppositeContent>
                 <TimelineSeparator>
@@ -284,12 +298,14 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <Paper
                     elevation={3}
-                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}
+                  >
                     <Typography
                       variant="h6"
                       component="h3"
                       gutterBottom
-                      fontWeight="bold">
+                      fontWeight="bold"
+                    >
                       B.Sc.C.S.I.T.
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
@@ -298,7 +314,8 @@ const About: React.FC = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ display: { xs: "block", md: "none" } }}>
+                      sx={{ display: { xs: "block", md: "none" } }}
+                    >
                       2024
                     </Typography>
                   </Paper>
@@ -308,7 +325,8 @@ const About: React.FC = () => {
               <TimelineItem>
                 <TimelineOppositeContent
                   color="text.secondary"
-                  sx={{ display: { xs: "none", md: "block" } }}>
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
                   2019
                 </TimelineOppositeContent>
                 <TimelineSeparator>
@@ -320,12 +338,14 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <Paper
                     elevation={3}
-                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}
+                  >
                     <Typography
                       variant="h6"
                       component="h3"
                       gutterBottom
-                      fontWeight="bold">
+                      fontWeight="bold"
+                    >
                       +2 H.S.E.B.
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
@@ -334,7 +354,8 @@ const About: React.FC = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ display: { xs: "block", md: "none" } }}>
+                      sx={{ display: { xs: "block", md: "none" } }}
+                    >
                       2019
                     </Typography>
                   </Paper>
@@ -344,7 +365,8 @@ const About: React.FC = () => {
               <TimelineItem>
                 <TimelineOppositeContent
                   color="text.secondary"
-                  sx={{ display: { xs: "none", md: "block" } }}>
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
                   2017
                 </TimelineOppositeContent>
                 <TimelineSeparator>
@@ -355,12 +377,14 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <Paper
                     elevation={3}
-                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}
+                  >
                     <Typography
                       variant="h6"
                       component="h3"
                       gutterBottom
-                      fontWeight="bold">
+                      fontWeight="bold"
+                    >
                       S.E.E.
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
@@ -369,7 +393,8 @@ const About: React.FC = () => {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ display: { xs: "block", md: "none" } }}>
+                      sx={{ display: { xs: "block", md: "none" } }}
+                    >
                       2017
                     </Typography>
                   </Paper>
@@ -385,7 +410,8 @@ const About: React.FC = () => {
                 flexWrap: "wrap",
                 gap: 3,
                 justifyContent: "center",
-              }}>
+              }}
+            >
               {skillCategories.map((category, index) => (
                 <Paper
                   key={index}
@@ -396,7 +422,8 @@ const About: React.FC = () => {
                     flex: "1 1 300px",
                     maxWidth: "400px",
                     minWidth: "280px",
-                  }}>
+                  }}
+                >
                   <Typography variant="h6" gutterBottom fontWeight="bold">
                     {category.category}
                   </Typography>
@@ -406,7 +433,8 @@ const About: React.FC = () => {
                       display: "flex",
                       flexWrap: "wrap",
                       gap: 1,
-                    }}>
+                    }}
+                  >
                     {category.skills.map((skill, skillIndex) => (
                       <Chip
                         key={skillIndex}
