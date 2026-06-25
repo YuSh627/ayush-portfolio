@@ -67,35 +67,25 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "JavaScript" },
       { name: "TypeScript" },
-      { name: "Python" },
-      { name: "C/C++" },
+      { name: "Kotlin" },
     ],
   },
   {
     category: "Web Development",
-    skills: [
-      { name: "HTML" },
-      { name: "CSS" },
-      { name: "React.js" },
-      { name: "Django" },
-      { name: "WordPress" },
-    ],
+    skills: [{ name: "HTML" }, { name: "CSS" }, { name: "WordPress" }],
   },
   {
     category: "Frameworks & Libraries",
-    skills: [{ name: "Material-UI" }, { name: "Redux" }],
+    skills: [
+      { name: "Material-UI" },
+      { name: "Redux" },
+      { name: "React.js" },
+      { name: "Reacr Native" },
+    ],
   },
   {
     category: "Tools & Platforms",
     skills: [{ name: "GitHub" }, { name: "Figma" }],
-  },
-  {
-    category: "Machine Learning",
-    skills: [
-      { name: "Data preprocessing" },
-      { name: "Model training" },
-      { name: "Evaluation" },
-    ],
   },
 ];
 
@@ -169,10 +159,15 @@ const About: React.FC = () => {
                   textAlign: "justify",
                 }}
               >
-                I specialize in creating responsive web applications with modern
-                JavaScript frameworks. My expertise includes front-end
-                development with React, user interface design with Figma, and
-                implementing responsive layouts with CSS and Material-UI.
+                I specialize in building responsive web and mobile applications
+                using modern technologies. My expertise includes front-end
+                development with React, TypeScript, and Material-UI, user
+                interface design with Figma, and mobile application development
+                with React Native and Kotlin. I have experience developing
+                interactive applications, implementing real-time features with
+                WebSocket, fixing and improving existing systems, migrating
+                legacy Android applications to Kotlin, and creating user-focused
+                solutions while collaborating in Agile team environments.
               </Typography>
               <Typography
                 variant="body1"
@@ -228,6 +223,60 @@ const About: React.FC = () => {
 
           <TabPanel value={value} index={0}>
             <Timeline position={isMobile ? "right" : "alternate"}>
+              <TimelineItem>
+                <TimelineOppositeContent
+                  color="text.secondary"
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
+                  December 2025 - March 2026
+                </TimelineOppositeContent>
+                <TimelineSeparator>
+                  <TimelineDot color="primary">
+                    <WorkIcon />
+                  </TimelineDot>
+                  <TimelineConnector />
+                </TimelineSeparator>
+                <TimelineContent>
+                  <Paper
+                    elevation={3}
+                    sx={{ p: { xs: 2, md: 3 }, borderRadius: 2 }}
+                  >
+                    <Typography
+                      variant="h6"
+                      component="h3"
+                      gutterBottom
+                      fontWeight="bold"
+                      mb="0"
+                    >
+                      Mobile Developer Intern (React Native / Kotlin)
+                    </Typography>
+                    <Typography variant="subtitle2" mt="0" fontWeight="medium">
+                      IMS Software Tripureshwor, Kathmandu
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{ display: { xs: "block", md: "none" }, mb: 1 }}
+                    >
+                      December 2025 - March 2026
+                    </Typography>
+                    <Box sx={{ mt: 1 }}>
+                      <Typography variant="body2" paragraph>
+                        Mobile App Developer Intern at IMS Software , where I
+                        worked with React Native and Kotlin to build and improve
+                        mobile applications. Contributed to bug fixing in the
+                        IMS Software SFA application, migrated the Panchakanya
+                        Field Service Management App from legacy Android (Java &
+                        XML) to native Kotlin, and developed an attendance
+                        application named Rhoto. Collaborated in an Agile team
+                        environment, participating in bi-weekly sprint planning
+                        and daily stand-up meetings.
+                      </Typography>
+                    </Box>
+                  </Paper>
+                </TimelineContent>
+              </TimelineItem>
+
               <TimelineItem>
                 <TimelineOppositeContent
                   color="text.secondary"

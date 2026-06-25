@@ -8,12 +8,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { Box } from "@mui/material";
 import Header from "./component/Header";
 import Hero from "./component/Hero";
-import About from "./component/About"; // This will be updated to include experience, education, and skills
+import About from "./component/About";
 import Projects from "./component/Projects";
 import Footer from "./component/Footer";
 import Contact from "./component/Contact";
 
-// Create base theme
 const baseTheme = createTheme({
   palette: {
     primary: {
@@ -54,15 +53,14 @@ const baseTheme = createTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
-          paddingLeft: 16, // Replace with theme.spacing(2) if theme is accessible here
-          paddingRight: 24, // Replace with theme.spacing(3) if theme is accessible here
+          paddingLeft: 16,
+          paddingRight: 24,
         },
       },
     },
   },
 });
 
-// Create responsive theme
 const theme = responsiveFontSizes(baseTheme);
 
 const App: React.FC = () => {
@@ -70,7 +68,8 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box
-        sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      >
         <Header />
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Hero />

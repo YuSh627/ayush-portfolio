@@ -63,6 +63,15 @@ const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript"],
     liveLink: "https://yush627.github.io/memory-card-game/",
   },
+  {
+    id: 4,
+    title: "SumoWorld Website",
+    description:
+      "Designed and developed a modern business website for Sumo World, a Nepal-based linen and hotel supplies company. The website showcases premium bedding, bath, and hospitality products with a clean responsive layout, product highlights, and contact sections tailored for hotels, residences, and commercial clients.",
+    image: "/ayush-portfolio/image/SumoWorld.png",
+    technologies: ["Wordpress", "HTML", "CSS", "JavaScript"],
+    liveLink: "https://sumoworld.com.np/",
+  },
 ];
 const Projects: React.FC = () => {
   return (
@@ -72,7 +81,8 @@ const Projects: React.FC = () => {
           variant="h2"
           component="h2"
           sx={{ mb: 5 }}
-          textAlign="center">
+          textAlign="center"
+        >
           Works Done
         </Typography>
         {/* <Typography
@@ -88,7 +98,8 @@ const Projects: React.FC = () => {
             flexWrap: "wrap",
             gap: 4,
             justifyContent: "center",
-          }}>
+          }}
+        >
           {projects.map((project) => (
             <Card
               key={project.id}
@@ -103,7 +114,8 @@ const Projects: React.FC = () => {
                   transform: "translateY(-5px)",
                   boxShadow: 6,
                 },
-              }}>
+              }}
+            >
               <CardMedia
                 component="img"
                 height="160"
@@ -116,7 +128,8 @@ const Projects: React.FC = () => {
                   gutterBottom
                   variant="h6"
                   fontWeight="bold"
-                  component="h3">
+                  component="h3"
+                >
                   {project.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" paragraph>
@@ -150,7 +163,8 @@ const Projects: React.FC = () => {
                     size="small"
                     startIcon={<DesignServicesIcon />}
                     href={project.figmaLink}
-                    target="_blank">
+                    target="_blank"
+                  >
                     Figma
                   </Button>
                 )}
@@ -159,7 +173,8 @@ const Projects: React.FC = () => {
                     size="small"
                     startIcon={<LinkIcon />}
                     href={project.liveLink}
-                    target="_blank">
+                    target="_blank"
+                  >
                     Live
                   </Button>
                 )}
